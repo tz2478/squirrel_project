@@ -2,7 +2,7 @@ import csv
 
 from django.core.management.base import BaseCommand
 
-#from squirrel.models import SeedDetail
+from squirrel.models import Squirrel
 
 class Command(BaseCommand):
     help = 'Get seeds into pot'
@@ -15,11 +15,18 @@ class Command(BaseCommand):
 
         with open(file_) as fp:
             reader = csv.DictReader(fp)
-
+        
+        #data = list(reader)
+        #print(len(data))
             for item in reader:
-                #obj = SeedDetail()
-                #obj.save()
-                pass
+                obj = Squirrel()
+           #     obj.X = item['X']
+           #     obj.Y = item['Y']
+                
+          #      obl.raw_sql('Insert into Squirrel']
+
+                obj.save()
+                #pass
 
         msg = f'You are importing from {file_}'
         self.stdout.write(self.style.SUCCESS(msg))
