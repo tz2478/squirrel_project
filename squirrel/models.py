@@ -18,11 +18,6 @@ class Squirrel(models.Model):
 	help_text=_('Unique Squirrel ID'),
 )
     
-    Hectare = models.CharField(
-        max_length=100,
-        help_text=_('Hectare'),
-)
-    
     AM = 'AM'
     PM = 'PM'
     Shift_choice = [
@@ -37,13 +32,9 @@ class Squirrel(models.Model):
         default=AM,
 )
 
-    Date = models.DateField(
-        max_length=100,
+    Date = models.CharField(
+        max_length=100, 
         help_text=_('Date'),
-)
-    Hectare_Squirrel_Number = models.CharField(
-        max_length=100,
-        help_text=_('Hectare Squirrel Number'),
 )
 
     Juvenile='Juvenile'
@@ -81,21 +72,6 @@ class Squirrel(models.Model):
         default = Other,
         blank=True,
 )
-    Highlight_Fur_Color = models.CharField(
-        max_length=100,
-        help_text=_('Highlight Fur Color'),
-        blank=True,
-)
-    Combination_of_Primary_and_Highlight_Color = models.CharField(
-        max_length=100,
-        help_text=_('Combination of Primary and Highlight Color'),
-)
-
-    Color_notes = models.CharField(
-        max_length=100,
-        help_text=_('Color notes'),
-        blank=True,
-)
 
     Above_Ground='Above_Ground'
     Ground_Plane='Ground_Plane'
@@ -111,12 +87,6 @@ class Squirrel(models.Model):
         help_text=_('Location'),
         choices = Location_choice,
         default = Other,
-        blank=True,
-)
-
-    Above_Ground_Sighter_Measurement = models.CharField(
-        max_length=100,
-        help_text=_('Above Ground Sighter Measurement'),
         blank=True,
 )
 
@@ -195,17 +165,6 @@ class Squirrel(models.Model):
     Runs_from = models.BooleanField(
         default = False,
         help_text=_('Whether or not squirrel is runs from'),
-)
-
-    Other_interactions = models.CharField(
-        max_length=100,
-        help_text=_('Other interactions'),
-        blank=True,
-)
-
-    Lat_Long = models.CharField(
-        max_length=100,
-        help_text=_('Lat/Long'),
 )
 
     def __str__(self):
