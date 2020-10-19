@@ -50,18 +50,6 @@ class Command(BaseCommand):
                         Runs_from = toBoolean(obs['Runs from']),
                         )
                 inst.save()
-            #msg = f'You are importing from {file_}'
-            #self.stdout.write(self.style.SUCCESS(msg))
-        
-        #data = list(reader)
-        #print(len(data))
-            #for item in reader:
-                #obj = Squirrel()
-           #     obj.X = item['X']
-           #     obj.Y = item['Y']
-                
-          #      obl.raw_sql('Insert into Squirrel']
-
-                #obj.save()
-                #pass
+            msg = f'You are importing from {file_}'
+            self.stdout.write(self.style.SUCCESS(msg))
 
