@@ -49,8 +49,8 @@ class Command(BaseCommand):
                         Runs_from = toBoolean(obs['Runs from']),
                         )
                 inst.save()
-            msg = f'You are importing from {file_}'
-            self.stdout.write(self.style.SUCCESS(msg))
+            #msg = f'You are importing from {file_}'
+            #self.stdout.write(self.style.SUCCESS(msg))
         
         #data = list(reader)
         #print(len(data))

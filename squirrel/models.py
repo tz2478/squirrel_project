@@ -14,7 +14,7 @@ class Squirrel(models.Model):
 )
 
     Unique_Squirrel_ID = models.CharField(
-        max_length=100,
+        max_length=30,
 	help_text=_('Unique Squirrel ID'),
 )
     
@@ -26,28 +26,30 @@ class Squirrel(models.Model):
             )
 
     Shift = models.CharField(
-        max_length=100,
+        max_length=20,
         choices = Shift_choice,
         help_text=_('Shift'),
         default=AM,
+        blank = True
 )
 
     Date = models.CharField(
         max_length=100, 
         help_text=_('Date'),
+        null = True,
+        blank = True
 )
 
     Juvenile='Juvenile'
     Adult='Adult'
-    Other='Other'
     Age_choice = (
             (Juvenile,'Juvenile'),
             (Adult,'Adult'),
-            (Other,'Other'),
+            (None,''),
             )
 
     Age = models.CharField(
-        max_length=100,
+        max_length=20,
         help_text=_('Age'),
         choices = Age_choice,
         default = Juvenile,
@@ -57,41 +59,37 @@ class Squirrel(models.Model):
     Black='Black'
     Cinnamon='Cinnamon'
     Gray='Gray'
-    Other='Other'
     Color_choice = (
             (Black,'Black'),
             (Cinnamon,'Cinnamon'),
             (Gray,'Gray'),
-            (Other,'Other'),
+            (None,''),
             )
 
     Primary_Fur_Color = models.CharField(
         max_length=15,
         help_text=_('Primary Fur Color'),
         choices = Color_choice,
-        default = Other,
         blank=True,
 )
 
     Above_Ground='Above_Ground'
     Ground_Plane='Ground_Plane'
-    Other='Other'
     Location_choice = (
             (Above_Ground,'Above_Ground'),
             (Ground_Plane,'Ground_Plane'),
-            (Other,'Other'),
+            (None,''),
             )
 
     Location = models.CharField(
         max_length=100,
         help_text=_('Location'),
         choices = Location_choice,
-        default = Other,
         blank=True,
 )
 
     Specific_Location = models.CharField(
-        max_length=100,
+        max_length=150,
         help_text=_('Specific Location'),
         blank=True,
 )
@@ -122,8 +120,9 @@ class Squirrel(models.Model):
 )
 
     Other_Activities = models.CharField(
-        max_length=100,
+        max_length=150,
         help_text=_('Other Activities'),
+        null=True,
         blank=True,
 )
 

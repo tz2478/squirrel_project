@@ -13,38 +13,35 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         file_ = options['file_']
 
-        output = {}
-        obj = Squirrel.objects.all()
-
         with open(file_, "w") as fp:
-            for inst in obj:
-                output['X'] = inst.X
-                output['Y'] = inst.Y
-                output['Unique Squirrel ID'] = inst.Unique_Squirrel_ID 
-                output['Shift'] = inst.Shift
-                output['Date'] = inst.Date
-                output['Age'] = inst.Age
-                output['Primary Fur Color'] = inst.Primary_Fur_Color
-                output['Location'] = inst.Location
-                output['Specific Location'] = inst.Specific_Location
-                output['Running'] = inst.Running
-                output['Chasing'] = inst.Chasing
-                output['Climbing'] = inst.Climbing
-                output['Eating'] = inst.Eating
-                output['Foraging'] = inst.Foraging
-                output['Other Activities'] = inst.Other_Activities
-                output['Kuks'] = inst.Kuks
-                output['Quaas'] = inst.Quaas
-                output['Moans'] = inst.Moans
-                output['Tail flags'] = inst.Tail_flags
-                output['Tail twitches'] = inst.Tail_twitches
-                output['Approaches'] = inst.Approaches
-                output['Indifferent'] = inst.Indifferent
-                output['Runs from'] = inst.Runs_from
+            writer = csv.DictWriter(fp, delimiter = ',', fieldnames = ['X','Y','Unique Squirrel ID','Shift','Date','Age','Primary Fur Color','Location','Specific Location','Running','Chasing','Climbing','Eating','Foraging','Other Activities','Kuks','Quaas','Moans','Tail flags','Tail twitches','Approaches','Indifferent','Runs from'])
+            writer.writeheader()
 
-                write_squirrel = csv.DictWriter(fp, delimiter = ',', fieldnames = output.keys())
-
-                write_squirrel.writeheader()
-                write_squirrel.writerow(output)
+            for inst in Squirrel.objects.all():
+                writer.writerow({
+                    'X':inst.X,
+                    'Y':inst.Y,
+                    'Unique Squirrel ID':inst.Unique_Squirrel_ID,
+                    'Shift':inst.Shift,
+                    'Date':inst.Date,
+                    'Age':inst.Age,
+                    'Primary Fur Color':inst.Primary_Fur_Color,
+                    'Location':inst.Location,
+                    'Specific Location':inst.Specific_Location,
+                    'Running':inst.Running,
+                    'Chasing':inst.Chasing,
+                    'Climbing':inst.Climbing,
+                    'Eating':inst.Eating,
+                    'Foraging':inst.Foraging,
+                    'Other Activities':inst.Other_Activities,
+                    'Kuks':inst.Kuks,
+                    'Quaas':inst.Quaas,
+                    'Moans':inst.Moans,
+                    'Tail flags':inst.Tail_flags,
+                    'Tail twitches':inst.Tail_twitches,
+                    'Approaches':inst.Approaches,
+                    'Indifferent':inst.Indifferent,
+                    'Runs from':inst.Runs_from,
+                    })
 
 
