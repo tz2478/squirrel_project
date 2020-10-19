@@ -14,7 +14,11 @@ class Command(BaseCommand):
         file_ = options['file_']
 
         with open(file_, "w") as fp:
-            writer = csv.DictWriter(fp, delimiter = ',', fieldnames = ['X','Y','Unique Squirrel ID','Shift','Date','Age','Primary Fur Color','Location','Specific Location','Running','Chasing','Climbing','Eating','Foraging','Other Activities','Kuks','Quaas','Moans','Tail flags','Tail twitches','Approaches','Indifferent','Runs from'])
+            writer = csv.DictWriter(
+                    fp, 
+                    delimiter = ',', 
+                    fieldnames = ['X',
+                        'Y','Unique Squirrel ID','Shift','Date','Age','Primary Fur Color','Location','Specific Location','Running','Chasing','Climbing','Eating','Foraging','Other Activities','Kuks','Quaas','Moans','Tail flags','Tail twitches','Approaches','Indifferent','Runs from'])
             writer.writeheader()
 
             for inst in Squirrel.objects.all():
