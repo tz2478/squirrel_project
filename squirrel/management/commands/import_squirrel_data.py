@@ -13,7 +13,7 @@ class Command(BaseCommand):
         parser.add_argument('file_', help='file containing squirrel data')
 
     def handle(self, *args, **options):
-        file_ = options['squirrel_file']
+        file_ = options['file_']
 
         with open(file_) as fp:
             reader = csv.DictReader(fp)
