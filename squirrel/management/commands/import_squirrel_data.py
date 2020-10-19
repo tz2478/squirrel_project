@@ -1,7 +1,5 @@
 import csv
 
-import datetime
-
 from django.core.management.base import BaseCommand
 
 from squirrel.models import Squirrel
@@ -14,10 +12,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         file_ = options['file_']
-
         with open(file_) as fp:
             reader = csv.DictReader(fp)
             data = list(reader)
+            
+            def toBoolean(string):
+                if str(string).lower() == 'true':
+                    return True
+                elif str(string).lower() == 'false':
+                    return False
 
             for obs in data:
                 inst = Squirrel(
@@ -27,23 +30,23 @@ class Command(BaseCommand):
                         Shift = obs['Shift'],
                         Date = obs['Date'],
                         Age = obs['Age'],
-                        Primary_fur_color = obs['Primary_fur_color'],
+                        Primary_Fur_Color = obs['Primary Fur Color'],
                         Location = obs['Location'],
-                        Specific_Location = obs['Specific_Location'],
-                        Running = obs['Running'],
-                        Chasing = obs['Chasing'],
-                        Climbing = obs['Climbing'],
-                        Eating = obs['Eating'],
-                        Foraging = obs['Foraging'],
-                        Other_Activities = obs['Other_Activities'],
-                        Kuks = obs['Kuks'],
-                        Quaas = obs['Quaas'],
-                        Moans = obs['Moans'],
-                        Tail_flags = obs['Tail_flags'],
-                        Tail_twitches = obs['Tail_twitches'],
-                        Approaches = obs['Approaches'],
-                        Indifferent = obs['Indifferent'],
-                        Runs_from = obs['Runs_from'],
+                        Specific_Location = obs['Specific Location'],
+                        Running = toBoolean(obs['Running']),
+                        Chasing = toBoolean(obs['Chasing']),
+                        Climbing = toBoolean(obs['Climbing']),
+                        Eating = toBoolean(obs['Eating']),
+                        Foraging = toBoolean(obs['Foraging']),
+                        Other_Activities = obs['Other Activities'],
+                        Kuks = toBoolean(obs['Kuks']),
+                        Quaas = toBoolean(obs['Quaas']),
+                        Moans = toBoolean(obs['Moans']),
+                        Tail_flags = toBoolean(obs['Tail flags']),
+                        Tail_twitches = toBoolean(obs['Tail twitches']),
+                        Approaches = toBoolean(obs['Approaches']),
+                        Indifferent = toBoolean(obs['Indifferent']),
+                        Runs_from = toBoolean(obs['Runs from']),
                         )
                 inst.save()
             msg = f'You are importing from {file_}'
