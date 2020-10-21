@@ -43,9 +43,7 @@ def add(request):
 
     elif request.method == "GET":
         form = SquirrelForm()
-        squirrels = Squirrel.objects.all()
         context = {
-                'squirrel': squirrels,
                 'form': form,
         }
         
