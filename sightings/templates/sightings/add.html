@@ -2,7 +2,7 @@
 <html>
 	<title>Add</title>
 	<body><p>Add a new sighting view here:</p>
-		<p><form action="{% url 'squirrel:add' %}" method="POST" name="add">
+		<p><form action="{% url 'sightings:add' %}" method="POST" name="add">
 			{% csrf_token %}
 			<table>
 				{{ form.as_table }}

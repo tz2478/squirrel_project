@@ -2,9 +2,9 @@ from django.shortcuts import render
 
 from django.http import JsonResponse
 from django.http import HttpResponse
-from squirrel.models import Squirrel
+#from sightings.models import Squirrel
 
-from squirrel.forms import SquirrelForm
+#from sightings.forms import SquirrelForm
 
 def index(request):
     #get 100 squirrels

@@ -6,21 +6,21 @@ from .models import Squirrel
 
 from .forms import SquirrelForm
 
-def home(request):
-    squirrels = 'Squirrel Tracker'
-    return render(request, 'squirrel/home.html')
+#def index(request):
+#    squirrels = 'Squirrel Tracker'
+#    return render(request, 'squirrel/index.html')
 
-def map(request):
+#def map(request):
     #get 100 squirrels
-    return render(request,'squirrel/map.html')
+#    return render(request,'squirrel/map.html')
 
-def sightings(request):
+def index(request):
     squirrels = Squirrel.objects.all()
     context = {
             'squirrels': squirrels,
     }
 
-    return render(request, 'squirrel/sightings/index.html', context)
+    return render(request, 'sightings/index.html', context)
 
 def stats(request):
     squirrels = Squirrel.objects.all()
@@ -29,7 +29,7 @@ def stats(request):
             'squirrel': squirrels,
     }
 
-    return render(request, 'squirrel/stats.html', context)
+    return render(request, 'sightings/stats.html', context)
 
 def add(request):
     if request.method == "POST":
@@ -47,7 +47,7 @@ def add(request):
                 'form': form,
         }
         
-    return render(request, 'squirrel/sightings/add.html', context) 
+    return render(request, 'sightings/add.html', context) 
 
 
 # Create your views here.
