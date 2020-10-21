@@ -20,11 +20,11 @@ def sightings(request):
             'squirrels': squirrels,
     }
 
-    return render(request, 'squirrel/sightings.html', context)
+    return render(request, 'squirrel/sightings/index.html', context)
 
 def stats(request):
     squirrels = Squirrel.objects.all()
-    #squirrel = Squirrel.objects.get(Unique_Squirrel_ID=squirrel_id)
+    ##squirrel = Squirrel.objects.get(Unique_Squirrel_ID=squirrel_id)
     context = {
             'squirrel': squirrels,
     }
@@ -37,7 +37,7 @@ def add(request):
         if form.is_valid():
             form.save
             form.save()
-            return HttpResponseRedirect('squirrel/add.html')
+            return HttpResponseRedirect('/index/')
         else:
             return JsonResponse({'errors': form.errors}, status=400)
 
@@ -47,7 +47,7 @@ def add(request):
                 'form': form,
         }
         
-    return render(request, 'squirrel/add.html', context) 
+    return render(request, 'squirrel/sightings/add.html', context) 
 
 
 # Create your views here.
