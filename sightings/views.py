@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.http import JsonResponse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from .models import Squirrel
 
 from .forms import SquirrelForm
@@ -37,7 +37,7 @@ def add(request):
         if form.is_valid():
             form.save
             form.save()
-            return HttpResponseRedirect('/index/')
+            return HttpResponse('Success! Your attemp to add a new sighting is Success!')
         else:
             return JsonResponse({'errors': form.errors}, status=400)
 

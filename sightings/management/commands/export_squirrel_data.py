@@ -2,7 +2,7 @@ import csv
 
 from django.core.management.base import BaseCommand
 
-from squirrel.models import Squirrel
+from sightings.models import Squirrel
 
 class Command(BaseCommand):
     help = 'export data in csv format'
