@@ -1,0 +1,22 @@
+<!doctype html>
+
+<html>
+	<title>Add</title>
+	<body><p>Add a sighting view:</p>
+		<p><form action="{% url 'squirrel:add' %}" method="POST" name="add">
+			{% csrf_token %}
+			<table>
+				{{ form.as_table }}
+				<br>
+				<tr>
+					<br>
+					<td></td>
+					<br>
+					<td><input type="submit" name="Submit"></td>
+				</tr>
+			</table>
+		</form>
+		</p>	
+	</body>
+</html>
+

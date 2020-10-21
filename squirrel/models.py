@@ -14,7 +14,7 @@ class Squirrel(models.Model):
 )
 
     Unique_Squirrel_ID = models.CharField(
-        max_length=30,
+        max_length=29,
 	help_text=_('Unique Squirrel ID'),
 )
     
