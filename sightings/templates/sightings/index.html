@@ -9,15 +9,15 @@
 
 		<table>
 			<tr>
-				<th>ID</th>
-				<th>Date</th>
-				<th>Sighting</th>
+				<th>    ID    </th>
+				<th>    Date    </th>
+				<th>    Sighting   </th>
 			</tr>
 				{% for squirrel in squirrels %}
 			<tr>
-				<td>{{squirrel.Unique_Squirrel_ID}}</td>
-				<td>{{squirrel.Date}}</td>
-				<td><a href="{% url 'sightings:update' squirrel.Unique_Squirrel_ID %}">Update a sighting</a></td>
+				<td>  {{squirrel.Unique_Squirrel_ID}} <br> </td>
+				<td>  {{squirrel.Date}} <br> </td>
+				<td>  <a href="{% url 'sightings:update' squirrel.Unique_Squirrel_ID %}">Update a sighting</a> <br> </td>
 			</tr>
 				{% endfor %}
 		</table>

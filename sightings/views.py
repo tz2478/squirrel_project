@@ -7,14 +7,6 @@ from .models import Squirrel
 
 from .forms import SquirrelForm
 
-#def index(request):
-#    squirrels = 'Squirrel Tracker'
-#    return render(request, 'squirrel/index.html')
-
-#def map(request):
-    #get 100 squirrels
-#    return render(request,'squirrel/map.html')
-
 def index(request):
     squirrels = Squirrel.objects.all()
     context = {
@@ -30,7 +22,6 @@ def stats(request):
     location_count = Squirrel.objects.filter(Location='Ground Plane').count()
     running_count = Squirrel.objects.filter(Running='True').count()
     not_eating_count = Squirrel.objects.filter(Eating='False').count()
-    ##squirrel = Squirrel.objects.get(Unique_Squirrel_ID=squirrel_id)
     context = {
             'total': total,
             'adult_count': adult_count,
@@ -47,7 +38,7 @@ def add(request):
         form = SquirrelForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('Your attemp to add a new sighting is Success!')
+            return HttpResponse('Your attemp to add a new sighting is Successful!')
         else:
             return JsonResponse({'errors': form.errors}, status=400)
 
@@ -60,18 +51,18 @@ def add(request):
     return render(request, 'sightings/add.html', context) 
 
 def update(request, squirrel_ID):
-    obj = get_object_or_404(Squirrel, Unique_Squirrel_ID = squirrel_ID)
+    obj = Squirrel.objects.filter(Unique_Squirrel_ID = squirrel_ID).first()
 
     if request.method == "POST":
         form = SquirrelForm(request.POST, instance = obj)
         if form.is_valid():
             form.save()
-            return HttpResponse('Your attemp to update a new sighting is Success!')
+            return HttpResponse('Your attemp to update a new sighting is Successful!')
         else:
             return JsonResponse({'errors': form.errors}, status=400)
 
     elif request.method == "GET":
-        form = SquirrelForm()
+        form = SquirrelForm(instance = obj)
         context = {
                 'form': form,
                 'squirrel_ID': squirrel_ID,

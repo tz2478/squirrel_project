@@ -7,8 +7,16 @@
 			<button>Back to sightings</button>
 		</form>
 		<br>
+
+		<form action="" method="GET" name="update">
+			{% csrf_token %}
+			
+		</form>
+
+
+
 		<p>Update a new sighting view here:</p>
-		<p><form action="" method="POST" name="update">
+		<form action="" method="POST" name="update">
 			{% csrf_token %}
 			<table>
 				The Squirrel ID you are updating right now is: {{squirrel_ID}}<br>
@@ -20,8 +28,7 @@
 					<td>     <input type="submit" name="Submit">     </td>
 				</tr>
 			</table>
-		</form>
-		</p>	
+		</form>	
 	</body>
 </html>
 
