@@ -9,7 +9,7 @@ urlpatterns = [
     #path('sightings', views.sightings, name='index'),
     path('stats', views.stats, name='stats'),
     path('add', views.add, name='add'),
-    path('update', views.update, name='update'),
+    path('<squirrel_ID>/', views.update, name='update'),
 
 ]
 

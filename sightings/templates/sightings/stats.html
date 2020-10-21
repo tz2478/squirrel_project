@@ -7,12 +7,12 @@
 		<p>General statistics about the sightings: </p>
 
 	<table>
-		<p>Count number of adult squirrels: {{ adult_count }} </p>
-		<p>Count number of squirrels with primary color cinnamon: {{ primary_fur_color_count }} </p>
-		<p>Count number of squirrels located on ground plane: {{ location_count }} </p>
-		<p>Count number of squirrels that are running: {{ running_count }} </p>
-		<p>Count number of squirrels that are not eating: {{ not_eating_count }} </p>
-
+		<p>Total number of squiirels in the database: {{ total }}</p>
+		<p>Total number of adult squirrels: {{ adult_count }} </p>
+		<p>Total number of squirrels with primary color cinnamon: {{ primary_fur_color_count }} </p>
+		<p>Total number of squirrels located on ground plane: {{ location_count }} </p>
+		<p>Total number of squirrels that are running: {{ running_count }} </p>
+		<p>Total number of squirrels that are not eating: {{ not_eating_count }} </p>
 	</table>
 	<form action=" {% url 'sightings:index' %} ">
 		<button>Back to sightings</button>

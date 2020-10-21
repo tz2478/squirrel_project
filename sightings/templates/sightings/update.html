@@ -2,16 +2,17 @@
 <html>
 	<title>Update</title>
 	<body>
-		<p>Update a new sighting view here:</p>
 		<p>If you want to go back to the sightings without saving the form, click the button.</p>
 		<form action=" {% url 'sightings:index' %} ">
 			<button>Back to sightings</button>
 		</form>
 		<br>
-		Update Update Update
-		<p><form action="{% url 'sightings:update' %}" method="POST" name="update">
+		<p>Update a new sighting view here:</p>
+		<p><form action="" method="POST" name="update">
 			{% csrf_token %}
 			<table>
+				The Squirrel ID you are updating right now is: {{squirrel_ID}}<br>
+
 				{{ form.as_table }}
 				<br>
 				<tr>
