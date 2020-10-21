@@ -4,21 +4,18 @@
 	<title>Stats</title>
 
 	<body>
-		<p>General statistics about the sightings</p>
+		<p>General statistics about the sightings: </p>
 
 	<table>
-		<tr>
-			<th>ID</th>
-			<th>Date</th>
-			<th>Sighting</th>
-		</tr>
-			{% for item in squirrels %}
-		<tr>
-			<td>{{item.Unique_Squirrel_ID}}</td>
-			<td>{{item.Date}}</td>
-			<td><a href="{% url 'sightings:stats' %}">Sighting</a></td>
-		</tr>
-			{% endfor %}
+		<p>Count number of adult squirrels: {{ adult_count }} </p>
+		<p>Count number of squirrels with primary color cinnamon: {{ primary_fur_color_count }} </p>
+		<p>Count number of squirrels located on ground plane: {{ location_count }} </p>
+		<p>Count number of squirrels that are running: {{ running_count }} </p>
+		<p>Count number of squirrels that are not eating: {{ not_eating_count }} </p>
+
 	</table>
+	<form action=" {% url 'sightings:index' %} ">
+		<button>Back to sightings</button>
+	</form>
 	</body>
 </html>

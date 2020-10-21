@@ -1,7 +1,14 @@
 <!doctype html>
 <html>
 	<title>Add</title>
-	<body><p>Add a new sighting view here:</p>
+
+	<body>
+		<p>If you want to go back to the sightings without saving the form, click the button.</p>
+		<form action=" {% url 'sightings:index' %} ">
+			<button>Back to sightings</button>
+		</form>
+		<br>
+		<p>Add a new sighting view here:</p>
 		<p><form action="{% url 'sightings:add' %}" method="POST" name="add">
 			{% csrf_token %}
 			<table>

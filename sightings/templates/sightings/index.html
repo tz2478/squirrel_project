@@ -4,7 +4,8 @@
 	<title>Sightings</title>
 
 	<body>
-		<p><a href="{% url 'sightings:add' %}">Add a new sighting view here.</a></p>
+		<p>Add a new sighting view <a href="{% url 'sightings:add' %}">here</a>!</p>
+		<p>Look at the general statistics <a href="{% url 'sightings:stats' %}">here</a>!</p>
 
 		<table>
 			<tr>
@@ -16,7 +17,7 @@
 			<tr>
 				<td>{{squirrel.Unique_Squirrel_ID}}</td>
 				<td>{{squirrel.Date}}</td>
-				<td><a href="{% url 'sightings:stats' %}">Sighting</a></td>
+				<td><a href="{% url 'sightings:update' %}">Update a sighting</a></td>
 			</tr>
 				{% endfor %}
 		</table>
