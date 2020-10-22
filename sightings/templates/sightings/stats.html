@@ -1,21 +1,29 @@
 <!doctype html>
 
-<html>
-	<title>Stats</title>
+<html lang="en">
+ 	 <head>
+   		<!-- Required meta tags -->
+   		<meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
 
-	<body>
+   		<!-- Bootstrap CSS -->
+   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   		<title>Update</title>
+ 	</head>
+	<body align="center">
 		<p>General statistics about the sightings: </p>
 
-	<table>
-		<p>Total number of squiirels in the database: {{ total }}</p>
-		<p>Total number of adult squirrels: {{ adult_count }} </p>
-		<p>Total number of squirrels with primary color cinnamon: {{ primary_fur_color_count }} </p>
-		<p>Total number of squirrels located on ground plane: {{ location_count }} </p>
-		<p>Total number of squirrels that are running: {{ running_count }} </p>
-		<p>Total number of squirrels that are not eating: {{ not_eating_count }} </p>
-	</table>
+	<ul>
+		<li>Total number of squiirels in the database: {{ total }}</li>
+		<li>Total number of adult squirrels: {{ adult_count }} </li>
+		<li>Total number of squirrels with primary color cinnamon: {{ primary_fur_color_count }} </li>
+		<li>Total number of squirrels located on ground plane: {{ location_count }} </li>
+		<li>Total number of squirrels that are running: {{ running_count }} </li>
+		<li>Total number of squirrels that are not eating: {{ not_eating_count }} </li>
+	</ul>
 	<form action=" {% url 'sightings:index' %} ">
-		<button>Back to sightings</button>
+		<button align="center">Back to sightings</button>
 	</form>
 	</body>
 </html>

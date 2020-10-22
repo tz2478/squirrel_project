@@ -1,6 +1,16 @@
 <!doctype html>
-<html>
-	<title>Update</title>
+
+<html lang="en">
+ 	 <head>
+   		<!-- Required meta tags -->
+   		<meta charset="utf-8">
+   		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
+   		<!-- Bootstrap CSS -->
+   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+   		<title>Update</title>
+ 	</head>
 	<body>
 		<p>If you want to go back to the sightings without saving the form, click the button.</p>
 		<form action=" {% url 'sightings:index' %} ">
@@ -8,17 +18,11 @@
 		</form>
 		<br>
 
-		<form action="" method="GET" name="update">
-			{% csrf_token %}
-			
-		</form>
-
-
-
-		<p>Update a new sighting view here:</p>
+		<p align="left">Update a new sighting view here:</p>
 		<form action="" method="POST" name="update">
 			{% csrf_token %}
-			<table>
+			<table align="left">
+
 				The Squirrel ID you are updating right now is: {{squirrel_ID}}<br>
 
 				{{ form.as_table }}

@@ -3,13 +3,15 @@ from django.utils.translation import gettext as _
 
 
 class Squirrel(models.Model):
-    X = models.CharField(
-	max_length=100,
+    X = models.DecimalField(
+	max_digits=100,
+        decimal_places=15,
 	help_text=_('X'),
 )
 
-    Y = models.CharField(
-        max_length=100,
+    Y = models.DecimalField(
+        max_digits=100,
+        decimal_places=15,
         help_text=_('Y'),
 )
 

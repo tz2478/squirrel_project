@@ -12,16 +12,18 @@
    		<title>Add</title>
  	</head>
 
-	<body>
+	<body
+		<table align="center">
 		<p>If you want to go back to the sightings without saving the form, click the button.</p>
 		<form action=" {% url 'sightings:index' %} ">
 			<button>Back to sightings</button>
 		</form>
+		</table>
 		<br>
-		<p>Add a new sighting view here:</p>
+		<p align="left">Add a new sighting view here:</p>
 		<p><form action="{% url 'sightings:add' %}" method="POST" name="add">
 			{% csrf_token %}
-			<table>
+			<table align="left">
 				{{ form.as_table }}
 				<br>
 				<tr>

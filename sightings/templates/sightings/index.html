@@ -13,10 +13,12 @@
  	</head>
 
 	<body>
-		<p>Add a new sighting view <a href="{% url 'sightings:add' %}">here</a>!</p>
-		<p>Look at the general statistics <a href="{% url 'sightings:stats' %}">here</a>!</p>
+		<ul>
+		<li>Add a new sighting view <a href="{% url 'sightings:add' %}">here</a>!</li>
+		<li>Look at the general statistics <a href="{% url 'sightings:stats' %}">here</a>!</li>
+		</ul>
 
-		<table>
+		<table align="left">
 			<tr>
 				<th>    ID    </th>
 				<th>    Date    </th>
