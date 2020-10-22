@@ -11,7 +11,7 @@ This is a squirrel tracking Django web-based application that allows for importi
 
 Group
 -------------------
-Project Group Alena & Thomas
+Project Group Alena & Thomas, Section 001
 
 UNI
 -------------------
